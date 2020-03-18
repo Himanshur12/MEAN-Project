@@ -1,0 +1,220 @@
+
+
+<!-- Add User Form -->
+
+          <div class="signup-form" *ngIf="flag; else elseblock">
+                <form  [formGroup]="profileForm" (ngSubmit)="onRegister(profileForm)">
+                    <div class="form-header">
+                        <h2>Register Here</h2>
+    
+                    </div>
+                    <div class="form-group">
+                        <label>First Name :  </label>
+                            <input type="text" class="form-control"  required="required" formControlName="name">
+                       
+                        <div *ngIf="name.invalid  && (name.dirty || name.touched)"
+                        class="alert alert-danger"> 
+                     
+                        <div *ngIf="name.errors.required">
+                                Name is required.
+                              </div>
+
+                              <div *ngIf="name.errors.minlength">
+                                    Name must be at least 4 characters long.
+                                  </div>
+                              
+                    </div>
+                       
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name :  </label>
+                            <input type="text" class="form-control"  required="required" formControlName="lastname">
+                       
+                        <div *ngIf="lastname.invalid  && (lastname.dirty || lastname.touched)"
+                        class="alert alert-danger"> 
+                     
+                        <div *ngIf="lastname.errors.required">
+                                Name is required.
+                              </div>
+
+                              <div *ngIf="lastname.errors.minlength">
+                                    Name must be at least 4 characters long.
+                                  </div>
+                              
+                    </div>
+                       
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address :</label>
+                             <input type="email" class="form-control" required="required" formControlName="email">
+                       
+                        <div *ngIf="email.invalid && (email.dirty || email.touched)"
+                        class="alert alert-danger">
+
+                            <div *ngIf="email.errors.required">
+                                Email is required.
+                            </div>
+                            <div *ngIf="email.errors.email">
+                                    Email must be a valid email address
+                            </div>
+                            </div>
+
+                         </div>
+
+
+                    <div class="form-group">
+                        <label>Password :  </label>
+                                <input type="password" class="form-control"  required="required" formControlName="password">
+                       
+
+                        <div *ngIf="password.invalid && (password.dirty || password.touched)"
+                        class="alert alert-danger">
+
+                            <div *ngIf="password.errors.required">
+                                password is required.
+                            </div>
+
+                            <div *ngIf="password.errors.minlength">
+                                    Password must be at least 6 characters long.
+                                  </div>
+                            </div>
+                        
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Confirm Password :  </label>
+                                <input type="password" class="form-control" formControlName="confirm_password" required="required">
+                       
+                                <div *ngIf="password.invalid && (confirm_password.dirty || confirm_password.touched)"
+                                class="alert alert-danger">
+        
+                                    <div *ngIf="confirm_password.errors.required">
+                                        Repeat Password
+                                    </div>
+        
+                                    </div>
+                       
+                            <div  *ngIf="profileForm.value.password !== profileForm.value.confirm_password">
+                                Password mismatch
+                            </div>
+                        
+                    </div>       
+
+                    <div class="form-group">
+                         <input  class="text-center big" type="submit" value="Submit" >
+                    </div>
+                        
+                </form>
+                <div class="text-center small">Wrong User account?? <a routerLink="/login">Login here</a></div>
+            </div>
+
+            <!-- Edit Form -->
+<ng-template #elseblock>
+          <div class="signup-form"  >
+                <form  [formGroup]="editform" (ngSubmit)="editUser(editform)">
+                    <div class="form-header">
+                        <h2>Update Here</h2>
+    
+                    </div>
+                    <div class="form-group">
+                        <label>First Name :  </label>
+                            <input type="text" class="form-control"  required="required" formControlName="name" [(ngModel)]="userObj.first_name">
+                       
+                        <div *ngIf="name.invalid  && (name.dirty || name.touched)"
+                        class="alert alert-danger"> 
+                     
+                        <div *ngIf="name.errors.required">
+                                Name is required.
+                              </div>
+
+                              <div *ngIf="name.errors.minlength">
+                                    Name must be at least 4 characters long.
+                                  </div>
+                              
+                    </div>
+                       
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name :  </label>
+                            <input type="text" class="form-control"  required="required" formControlName="lastname" [(ngModel)]="userObj.last_name">
+                       
+                        <div *ngIf="lastname.invalid  && (lastname.dirty || lastname.touched)"
+                        class="alert alert-danger"> 
+                     
+                        <div *ngIf="lastname.errors.required">
+                                Name is required.
+                              </div>
+
+                              <div *ngIf="lastname.errors.minlength">
+                                    Name must be at least 4 characters long.
+                                  </div>
+                              
+                    </div>
+                       
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address :</label>
+                             <input type="email" class="form-control" required="required" formControlName="email" [(ngModel)]="userObj.email">
+                       
+                        <div *ngIf="email.invalid && (email.dirty || email.touched)"
+                        class="alert alert-danger">
+
+                            <div *ngIf="email.errors.required">
+                                Email is required.
+                            </div>
+                            <div *ngIf="email.errors.email">
+                                    Email must be a valid email address
+                            </div>
+                            </div>
+
+                         </div>
+
+
+                    <div class="form-group">
+                        <label>Password :  </label>
+                                <input type="password" class="form-control"  required="required" formControlName="password" value="">
+                       
+
+                        <div *ngIf="password.invalid && (password.dirty || password.touched)"
+                        class="alert alert-danger">
+
+                            <div *ngIf="password.errors.required">
+                                password is required.
+                            </div>
+
+                            <div *ngIf="password.errors.minlength">
+                                    Password must be at least 6 characters long.
+                                  </div>
+                            </div>
+                        
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Confirm Password :  </label>
+                                <input type="password" class="form-control" formControlName="confirm_password" required="required" value="">
+                       
+                                <div *ngIf="password.invalid && (confirm_password.dirty || confirm_password.touched)"
+                                class="alert alert-danger">
+        
+                                    <div *ngIf="confirm_password.errors.required">
+                                        Repeat Password
+                                    </div>
+        
+                                    </div>
+                       
+                            <div  *ngIf="profileForm.value.password !== profileForm.value.confirm_password">
+                                Password mismatch
+                            </div>
+                        
+                    </div>       
+
+                    <div  class="form-group">
+                         <input  class="text-center big" type="submit" class=" btn-primary big"  value="Update" (click)="updateUser()">
+                    </div>
+                        
+                </form>
+                <div class="text-center small">Wrong User account?? <a routerLink="/login">Login here</a></div>
+            </div>
+            </ng-template>

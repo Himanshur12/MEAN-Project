@@ -1,0 +1,72 @@
+
+          <div class="signup-form">
+            <form  [formGroup]="profileForm" (ngSubmit)="onRegister(profileForm)">
+                <div class="form-header">
+                    <h2>Register Here</h2>
+
+                </div>
+                <div class="form-group">
+                    <label>Product Name :  </label>
+                        <input type="text" class="form-control"  required="required" formControlName="productName" [(ngModel)]="productObj.p_name">
+                   
+                    <div *ngIf="productName.invalid  && (productName.dirty || productName.touched)"
+                    class="alert alert-danger"> 
+                 
+                    <div *ngIf="productName.errors.required">
+                            Name is required.
+                          </div>
+
+                          <div *ngIf="productName.errors.minlength">
+                                Name must be at least 4 characters long.
+                              </div>
+                          
+                </div>     
+                </div>
+
+                <div class="form-group">
+                    <label>Product Description :  </label>
+                        <input type="text" class="form-control"  required="required" formControlName="productDescription" [(ngModel)]="productObj.p_desc">
+                   
+                    <div *ngIf="productDescription.invalid  && (productDescription.dirty || productDescription.touched)"
+                    class="alert alert-danger"> 
+                 
+                    <div *ngIf="productDescription.errors.required">
+                        Description is required.
+                          </div>
+
+                          <div *ngIf="productDescription.errors.minlength">
+                            Description must be at least 4 characters long.
+                              </div>
+                          
+                </div>
+                 </div>
+
+                 <div class="form-group">
+                    <label>Product Image :  </label>
+                        <input type="text" class="form-control"  required="required" formControlName="productImage" [(ngModel)]="productObj.p_image">
+                   
+                    <div *ngIf="productImage.invalid  && (productImage.dirty || productImage.touched)"
+                    class="alert alert-danger"> 
+                 
+                    <div *ngIf="productImage.errors.required">
+                        productImage is required.
+                          </div>
+
+                          <div *ngIf="productImage.errors.minlength">
+                            productImage must be at least 4 characters long.
+                              </div>
+                          
+                </div>
+                   
+                </div>
+                <div class="myButton">
+               
+                   <span class="button1 pull-left">  <input class="text-center big" type="submit"  value="Submit" ></span>
+               
+             
+                  <span class="button2 pull-right">  <input class="text-center big" type="submit"  value="update"   (click)="updateProduct()"></span>
+           
+            </div>
+            </form>
+            <div class="text-center small">Logout Account : <a routerLink="/login">Logout Here</a></div>
+        </div>

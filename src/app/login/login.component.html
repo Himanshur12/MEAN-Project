@@ -1,0 +1,114 @@
+<div class="limiter">
+    <div class="container-login100">
+    <div class="wrap-login100">
+    <div class="login100-form-title">
+    <span class="login100-form-title-1">
+    Sign In
+    </span>
+    </div>
+    <form class="login100-form validate-form" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div class="wrap-input100 validate-input m-b-26">
+    <span class="label-input100">E-mail</span>
+    <input class="input100" type="text"  placeholder="Enter Email" formControlName="email">
+    
+    <span class="focus-input100"></span>
+    <div *ngIf="email.invalid && (email.dirty || email.touched)"
+    class="alert alert-danger"> 
+ 
+    <div *ngIf="email.errors.required">
+      Email is required.
+          </div>
+          <div *ngIf="email.errors.email">
+            Email must be a valid email address
+    </div>
+          
+</div>
+    </div>
+    
+    <div class="wrap-input100 validate-input m-b-18">
+
+    <span class="label-input100">Password</span>
+
+    <input class="input100" type="password"  placeholder="Enter password" formControlName="password" >
+   
+    <span class="focus-input100"></span>
+    
+    <div *ngIf="password.invalid && (password.dirty || password.touched)"
+    class="alert alert-danger">
+
+        <div *ngIf="password.errors.required">
+            password is required.
+        </div>
+
+        <div *ngIf="password.errors.minlength">
+                Password must be at least 6 characters long.
+              </div>
+        </div>
+    </div>
+
+
+    <div class="flex-sb-m w-full p-b-30">
+    <div class="contact100-form-checkbox">
+    <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+    <label class="label-checkbox100" for="ckb1">
+    Remember me
+    </label>
+    </div>
+    <div>
+    <a href="#" class="txt1" data-toggle="modal" data-target="#modalSubscriptionForm">
+    Forgot Password?
+    </a>
+    <div class="modal" id="modalSubscriptionForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Forget Password</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-4">
+                <label data-error="wrong" data-success="right" >Your Email :</label>
+          <i class="fas fa-envelope prefix grey-text"></i>
+          <input type="email" id="form2" class="form-control validate">
+          
+        </div>
+
+      
+
+      </div>
+      <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Send</button>
+          </div>
+    </div>
+  </div>
+</div> 
+
+
+      
+    </div>
+    </div>
+    <div class="container-login100-form-btn">
+
+
+        <div class="form-group">
+            <input class="login100-form-btn" type="submit"value="Login Here" >
+       </div>
+
+    </div>
+    <div class="signup-here">
+       <span class="createacc">
+       Create an account?
+       </span>
+       <a routerLink="/signup" class="txt2 hov1">
+       Sign up
+       </a>
+       </div>
+    </form>
+    </div>
+    </div>
+    </div>
+    

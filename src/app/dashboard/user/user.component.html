@@ -1,0 +1,110 @@
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <!-- Brand/logo -->
+    <a class="navbar-brand" href="#">
+      <img src="../../assets/logo.jpg" alt="logo" style="width:80px; height: 30px">
+    </a>
+    
+    <!-- Links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/dashboard" >Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/dashboard/user" >User</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/dashboard/product">Product</a>
+      </li>
+      <li class="nav-item">
+            <a class="nav-link" routerLink="/dashboard" >Reviews</a>
+          </li>
+          <li class="nav-item">
+                <a class="nav-link" routerLink="/dashboard" >About Us</a>
+              </li>
+    </ul>
+   
+  <ul class="navbar-nav ml-auto">
+        <li><a routerLink="/profile"><span class="glyphicon glyphicon-user"></span>My Profile</a></li>
+      </ul>
+    </nav>
+
+
+
+   
+      <!-- Modal -->
+      <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel"><h3>Register User</h3></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                  <div class="col">
+                          <label for="message-text" class="col-form-label">First Name :</label>
+                          <input type="firstName" class="form-control input-lg" name="firstName" value="">
+                      </div>
+                      <div class="col" >
+                              <label for="message-text" class="col-form-label">Last Name :</label>
+                              <input type="firstName" class="form-control input-lg" name="firstName" value="">
+                          </div>
+                          <div class="col">
+                                  <label for="message-text" class="col-form-label">Email :</label>
+                                  <input type="firstName" class="form-control input-lg" name="firstName" value="">
+                              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" (click)=showToaster()>Add User</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+<!-- Form ENd -->
+<div class="product_head ">
+  <p class="text-center">Users List</p>
+  </div>
+
+<div class="container">
+   
+    <div class="row">
+        <div class="panel panel-primary filterable">
+            <div class="panel-heading">
+                <h3 class="panel-title">Users</h3>
+                <div class="pull-right">
+                    <button class="btn btn-default btn-xs btn-filter"><a class="nav-link"  class="btn btn-warning" routerLink="/dashboard/addUser">Add User</a></button>
+                </div>
+            </div>
+            <table class="table">
+               
+              <thead>
+                    <tr class="filters">
+                        <th><input type="text" class="form-control" placeholder="#" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="First Name" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Last Name" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Email" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Action" disabled></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of user; let i= index ">
+                        <td> {{i}}</td>
+                        <td> {{ user.first_name }}</td>
+                        <td>{{ user.last_name }}</td>
+                        <td>{{ user.email }}</td>
+                      <div class="row">
+                        <td><button type="button" (click)="updateUser(user._id,user.first_name, user.last_name,user.email)" value="Edit" class="btn btn-success">Edit</button></td>
+                        <td><button  type="button" (click)="getUserdata(user._id)" class="btn btn-warning" value="Edit">View</button></td>
+                        <td><button type="button" (click)="delUser(user._id)" value="Edit" class="btn btn-danger">Delete</button></td>
+                      </div>
+                      </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

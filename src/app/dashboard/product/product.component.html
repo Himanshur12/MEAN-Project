@@ -1,0 +1,78 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <!-- Brand/logo -->
+    <a class="navbar-brand" href="#">
+      <img src="../../assets/logo.jpg" alt="logo" style="width:80px; height: 30px">
+    </a>
+    
+    <!-- Links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/dashboard/user">User</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/dashboard/product">Product</a>
+      </li>
+      <li class="nav-item">
+            <a class="nav-link" href="#">Reviews</a>
+          </li>
+          <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
+              </li>
+    </ul>
+	 
+  <ul class="navbar-nav ml-auto">
+        <li><a routerLink="/dashboard/profile"><span class="glyphicon glyphicon-user"></span> My Profile</a></li>
+      </ul>
+		</nav>
+
+  <div class="product_head ">
+    <p class="text-center">Product List</p>
+    </div>
+
+  <!-- product form -->
+   
+
+<hr>
+<div class="container bootstrap snippet">
+    <div class="row">
+      
+        <div class="col-lg-12">
+         
+            <div class="main-box no-header clearfix">
+                <div class="pull-right">
+                    <button class="btn btn-default btn-sm btn-filter"><a class="nav-link"  class="btn btn-warning" routerLink="/dashboard/addProduct">Add Product</a></button>
+                </div>
+                <div class="main-box-body clearfix">
+                    <div class="table-responsive">
+                        <table class="table user-list">
+                          
+                            <thead >
+                                <tr >
+                                <th><span>S.no</span></th>
+                                <th><span>Product Name</span></th>
+                                <th><span>Description</span></th>
+                                <th><span>Product Image</span></th>
+                                <th>&nbsp;<span>Action</span></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                        
+                                <tr *ngFor="let product of product; let i= index ">
+                                  <td> {{i}}</td>
+                                  <td> {{ product.p_name }}</td>
+                                  <td>{{ product.p_desc }}</td>
+                                  <td>{{ product.p_image }}</td>
+                                    
+                                  <td><button class="btn btn-success" type="button " (click)="updateProduct(product._id,product.p_name,product.p_desc,product.p_image)" value="Edit">Edit &nbsp;</button><button  type="button" onclick="viewfun()" class="btn btn-warning" value="Edit">View</button><button type="button" (click)="delproduct(product._id)" value="Edit" class="btn btn-danger">Delete</button></td>
+                              </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
